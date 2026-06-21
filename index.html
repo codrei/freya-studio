@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Freya Studio Cafe & Bakery — Lipa City</title>
+  <meta name="description" content="Freya Studio Cafe & Bakery in Lipa City — custom cakes, fresh pastries, specialty coffee, and a cozy studio space. Pre-order your dream cake today." />
+  <meta name="theme-color" content="#FBF7F0" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Freya Studio Cafe & Bakery — Lipa City" />
+  <meta property="og:description" content="Custom cakes, fresh pastries, specialty coffee & a cozy studio space in Lipa City." />
+
+  <!-- Favicon (inline) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23C97C8A'/><text x='50' y='71' font-family='Georgia,serif' font-size='62' font-weight='bold' text-anchor='middle' fill='%23FFFDF9'>F</text></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream:   '#FBF7F0',
+            ivory:   '#FFFDF9',
+            blush:   '#F0D9D9',
+            rose:    '#C97C8A',
+            'rose-deep': '#A85B6A',
+            caramel: '#C58F5B',
+            gold:    '#B8893F',
+            espresso:'#3A2A20',
+            mocha:   '#6F5B4E',
+          },
+          fontFamily: {
+            display: ['Fraunces', 'serif'],
+            sans: ['Poppins', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html, body { background: #FBF7F0; }
+    ::selection { background: rgba(201,124,138,0.25); }
+
+    /* Scroll-reveal (always on — animations are the selling point) */
+    .reveal {
+      opacity: 0;
+      transition: opacity 1.2s cubic-bezier(.16,1,.3,1), transform 1.2s cubic-bezier(.16,1,.3,1);
+      transition-delay: var(--d, 0s);
+      will-change: opacity, transform;
+    }
+    .reveal.from-up    { transform: translateY(40px); }
+    .reveal.from-left  { transform: translateX(-60px); }
+    .reveal.from-right { transform: translateX(60px); }
+    .reveal.in { transform: none; opacity: 1; }
+
+    /* Hero image slow zoom */
+    @keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.08); } }
+    .kenburns { animation: kenburns 18s ease-out forwards; }
+
+    /* Marquee */
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .marquee-track { animation: marquee 30s linear infinite; }
+
+    /* Typewriter caret */
+    .caret { display:inline-block; width:2px; height:1em; margin-left:2px; background: currentColor; vertical-align:-0.1em; animation: blink 1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    /* "est." stamp */
+    @keyframes spin-slow { to { transform: rotate(360deg); } }
+    .spin-slow { animation: spin-slow 26s linear infinite; }
+
+    section[id] { scroll-margin-top: 5rem; }
+    :focus-visible { outline: 2px solid #C97C8A; outline-offset: 3px; border-radius: 6px; }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #FBF7F0; }
+    ::-webkit-scrollbar-thumb { background: #E8C9C2; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #C97C8A; }
+  </style>
+</head>
+
+<body class="font-sans text-espresso antialiased">
+
+  <!-- ===================== NAV ===================== -->
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-espresso/5 bg-cream/80 backdrop-blur-md">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <a href="#top" class="flex items-center gap-3">
+        <span class="grid h-10 w-10 place-items-center rounded-xl bg-rose font-display text-xl font-bold text-ivory">F</span>
+        <span class="font-display text-lg font-semibold tracking-tight text-espresso">Freya <span class="text-rose">Studio</span></span>
+      </a>
+
+      <div class="hidden items-center gap-8 text-sm font-medium text-mocha md:flex">
+        <a href="#about" class="transition hover:text-rose">About</a>
+        <a href="#menu" class="transition hover:text-rose">Menu</a>
+        <a href="#preorder" class="transition hover:text-rose">Pre-Order</a>
+        <a href="#gallery" class="transition hover:text-rose">Gallery</a>
+        <a href="#visit" class="transition hover:text-rose">Visit</a>
+        <a href="#preorder" class="rounded-full bg-rose px-5 py-2 font-semibold text-ivory shadow-lg shadow-rose/30 transition hover:bg-rose-deep">Order a Cake</a>
+      </div>
+
+      <button id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu" class="text-espresso md:hidden">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
+      </button>
+    </nav>
+
+    <div id="mobileMenu" class="hidden border-t border-espresso/5 bg-cream px-6 py-4 md:hidden">
+      <div class="flex flex-col gap-4 text-sm font-medium text-espresso">
+        <a href="#about" class="mobile-link transition hover:text-rose">About</a>
+        <a href="#menu" class="mobile-link transition hover:text-rose">Menu</a>
+        <a href="#preorder" class="mobile-link transition hover:text-rose">Pre-Order</a>
+        <a href="#gallery" class="mobile-link transition hover:text-rose">Gallery</a>
+        <a href="#visit" class="mobile-link transition hover:text-rose">Visit</a>
+        <a href="#preorder" class="mobile-link font-semibold text-rose">Order a Cake →</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section id="top" class="relative flex min-h-screen items-center overflow-hidden">
+    <!-- background image -->
+    <div class="absolute inset-0">
+      <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1600&q=80"
+           alt="Freshly baked cake" class="kenburns h-full w-full object-cover"
+           onerror="this.onerror=null;this.src='https://placehold.co/1600x900/3A2A20/FBF7F0?text=Freya+Studio';" />
+      <div class="absolute inset-0 bg-gradient-to-r from-espresso/80 via-espresso/55 to-espresso/30"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-espresso/60 via-transparent to-transparent"></div>
+    </div>
+
+    <div class="relative mx-auto w-full max-w-6xl px-6 pt-28 pb-20">
+      <div class="max-w-2xl">
+        <p class="reveal from-up mb-5 inline-flex items-center gap-2 rounded-full border border-ivory/25 bg-ivory/10 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-ivory backdrop-blur-sm">
+          <span class="h-1.5 w-1.5 rounded-full bg-blush"></span> Cafe &amp; Bakery · Lipa City
+        </p>
+        <h1 class="reveal from-up font-display text-5xl font-semibold leading-[1.05] tracking-tight text-ivory sm:text-6xl lg:text-7xl" style="--d:.1s">
+          Freya Studio
+        </h1>
+        <p class="reveal from-up mt-5 text-xl font-light text-ivory/90 sm:text-2xl" style="--d:.2s">
+          <span id="typed">Freshly baked, made with love.</span><span class="caret text-blush" aria-hidden="true"></span>
+        </p>
+        <p class="reveal from-up mt-5 max-w-xl text-base leading-relaxed text-ivory/75" style="--d:.3s">
+          Custom cakes, fresh-from-the-oven pastries, and specialty coffee — served in a cozy little studio
+          made for slow mornings, celebrations, and good company.
+        </p>
+
+        <div class="reveal from-up mt-9 flex flex-col gap-4 sm:flex-row" style="--d:.4s">
+          <a href="#preorder" class="inline-flex items-center justify-center gap-2 rounded-full bg-rose px-7 py-3.5 font-semibold text-ivory shadow-xl shadow-rose/30 transition hover:-translate-y-0.5 hover:bg-rose-deep">
+            🍰 Pre-Order a Cake
+          </a>
+          <a href="#menu" class="inline-flex items-center justify-center gap-2 rounded-full border border-ivory/30 bg-ivory/10 px-7 py-3.5 font-semibold text-ivory backdrop-blur-sm transition hover:-translate-y-0.5 hover:bg-ivory/20">
+            See the Menu
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- scroll cue -->
+    <a href="#about" aria-label="Scroll down" class="absolute bottom-7 left-1/2 -translate-x-1/2 text-ivory/70 transition hover:text-ivory">
+      <svg class="h-6 w-6 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
+    </a>
+  </section>
+
+  <!-- ===================== MARQUEE ===================== -->
+  <div class="overflow-hidden border-y border-espresso/10 bg-rose py-4 text-ivory">
+    <div class="marquee-track flex w-max items-center gap-10 whitespace-nowrap font-display text-lg">
+      <!-- duplicated for seamless loop -->
+      <span class="flex items-center gap-10">
+        <span>Custom Cakes</span><span class="text-blush">✦</span><span>Fresh Pastries</span><span class="text-blush">✦</span>
+        <span>Specialty Coffee</span><span class="text-blush">✦</span><span>Private Events</span><span class="text-blush">✦</span>
+        <span>Made From Scratch</span><span class="text-blush">✦</span>
+      </span>
+      <span class="flex items-center gap-10" aria-hidden="true">
+        <span>Custom Cakes</span><span class="text-blush">✦</span><span>Fresh Pastries</span><span class="text-blush">✦</span>
+        <span>Specialty Coffee</span><span class="text-blush">✦</span><span>Private Events</span><span class="text-blush">✦</span>
+        <span>Made From Scratch</span><span class="text-blush">✦</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section id="about" class="mx-auto max-w-6xl px-6 py-24 sm:py-28">
+    <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+      <div class="reveal from-left relative">
+        <div class="overflow-hidden rounded-3xl border border-espresso/10 shadow-xl shadow-espresso/10">
+          <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&w=900&q=80"
+               alt="Inside Freya Studio" class="aspect-[4/5] w-full object-cover"
+               onerror="this.onerror=null;this.src='https://placehold.co/900x1125/E8C9C2/3A2A20?text=Our+Studio';" />
+        </div>
+        <!-- est. stamp -->
+        <div class="absolute -right-4 -top-4 grid h-24 w-24 place-items-center rounded-full bg-rose text-center text-ivory shadow-lg sm:-right-6 sm:h-28 sm:w-28">
+          <div>
+            <p class="font-display text-2xl font-bold leading-none">est.</p>
+            <p class="font-display text-lg leading-tight">2024</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal from-right">
+        <p class="mb-3 font-display text-sm uppercase tracking-[0.2em] text-rose">Our Story</p>
+        <h2 class="font-display text-3xl font-semibold leading-tight text-espresso sm:text-4xl">
+          Born from a home kitchen, baked with heart.
+        </h2>
+        <p class="mt-5 leading-relaxed text-mocha">
+          Freya Studio began as a small home-baking dream — a love for cakes that taste as good as they look.
+          Today, it's a cozy café and bakery in Lipa where every pastry is made from scratch and every cup of
+          coffee is poured with care.
+        </p>
+        <p class="mt-4 leading-relaxed text-mocha">
+          Whether you're here for a quiet afternoon, a custom celebration cake, or to book the studio for an
+          intimate gathering — you'll always find a warm welcome and something sweet.
+        </p>
+
+        <div class="mt-8 grid grid-cols-3 gap-4">
+          <div class="rounded-2xl border border-espresso/10 bg-ivory p-4 text-center shadow-sm">
+            <p class="font-display text-3xl font-bold text-rose">100%</p>
+            <p class="mt-1 text-xs text-mocha">Made from scratch</p>
+          </div>
+          <div class="rounded-2xl border border-espresso/10 bg-ivory p-4 text-center shadow-sm">
+            <p class="font-display text-3xl font-bold text-rose">Custom</p>
+            <p class="mt-1 text-xs text-mocha">Cakes for any event</p>
+          </div>
+          <div class="rounded-2xl border border-espresso/10 bg-ivory p-4 text-center shadow-sm">
+            <p class="font-display text-3xl font-bold text-rose">Cozy</p>
+            <p class="mt-1 text-xs text-mocha">Studio space</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== MENU ===================== -->
+  <section id="menu" class="bg-ivory py-24 sm:py-28">
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="reveal from-up mx-auto max-w-2xl text-center">
+        <p class="mb-3 font-display text-sm uppercase tracking-[0.2em] text-rose">What We Serve</p>
+        <h2 class="font-display text-3xl font-semibold leading-tight text-espresso sm:text-4xl">The Menu</h2>
+        <p class="mt-4 leading-relaxed text-mocha">A little taste of everything — from celebration cakes to your daily cup. Prices are samples; we'll swap in the real menu.</p>
+      </div>
+
+      <!-- filters -->
+      <div class="reveal from-up mt-10 flex flex-wrap justify-center gap-2">
+        <button class="menu-filter rounded-full bg-rose px-5 py-2 text-sm font-semibold text-ivory transition" data-filter="all" aria-pressed="true">All</button>
+        <button class="menu-filter rounded-full border border-espresso/15 bg-cream px-5 py-2 text-sm font-semibold text-mocha transition hover:border-rose hover:text-rose" data-filter="cakes" aria-pressed="false">Cakes</button>
+        <button class="menu-filter rounded-full border border-espresso/15 bg-cream px-5 py-2 text-sm font-semibold text-mocha transition hover:border-rose hover:text-rose" data-filter="pastries" aria-pressed="false">Pastries</button>
+        <button class="menu-filter rounded-full border border-espresso/15 bg-cream px-5 py-2 text-sm font-semibold text-mocha transition hover:border-rose hover:text-rose" data-filter="drinks" aria-pressed="false">Coffee &amp; Drinks</button>
+      </div>
+
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- item -->
+        <article class="menu-item reveal from-up group overflow-hidden rounded-3xl border border-espresso/10 bg-cream shadow-sm transition hover:shadow-xl hover:shadow-espresso/10" data-cat="cakes">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?auto=format&fit=crop&w=700&q=80" alt="Classic celebration cake" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/700x525/E8C9C2/3A2A20?text=Cake';" />
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-display text-lg font-semibold text-espresso">Signature Celebration Cake</h3>
+              <span class="shrink-0 font-display font-bold text-rose">₱1,200</span>
+            </div>
+            <p class="mt-1.5 text-sm text-mocha">Moist layers, silky frosting — customizable for any occasion.</p>
+          </div>
+        </article>
+
+        <article class="menu-item reveal from-up group overflow-hidden rounded-3xl border border-espresso/10 bg-cream shadow-sm transition hover:shadow-xl hover:shadow-espresso/10" data-cat="cakes" style="--d:.06s">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&w=700&q=80" alt="Cupcakes" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/700x525/E8C9C2/3A2A20?text=Cupcakes';" />
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-display text-lg font-semibold text-espresso">Studio Cupcakes (6s)</h3>
+              <span class="shrink-0 font-display font-bold text-rose">₱360</span>
+            </div>
+            <p class="mt-1.5 text-sm text-mocha">A half-dozen of our daily flavors, beautifully piped.</p>
+          </div>
+        </article>
+
+        <article class="menu-item reveal from-up group overflow-hidden rounded-3xl border border-espresso/10 bg-cream shadow-sm transition hover:shadow-xl hover:shadow-espresso/10" data-cat="pastries" style="--d:.12s">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=700&q=80" alt="Butter croissant" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/700x525/E8C9C2/3A2A20?text=Croissant';" />
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-display text-lg font-semibold text-espresso">Butter Croissant</h3>
+              <span class="shrink-0 font-display font-bold text-rose">₱95</span>
+            </div>
+            <p class="mt-1.5 text-sm text-mocha">Flaky, golden, baked fresh every morning.</p>
+          </div>
+        </article>
+
+        <article class="menu-item reveal from-up group overflow-hidden rounded-3xl border border-espresso/10 bg-cream shadow-sm transition hover:shadow-xl hover:shadow-espresso/10" data-cat="pastries" style="--d:.06s">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=700&q=80" alt="Assorted pastries" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/700x525/E8C9C2/3A2A20?text=Pastries';" />
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-display text-lg font-semibold text-espresso">Cinnamon Roll</h3>
+              <span class="shrink-0 font-display font-bold text-rose">₱120</span>
+            </div>
+            <p class="mt-1.5 text-sm text-mocha">Warm, gooey, with cream-cheese glaze.</p>
+          </div>
+        </article>
+
+        <article class="menu-item reveal from-up group overflow-hidden rounded-3xl border border-espresso/10 bg-cream shadow-sm transition hover:shadow-xl hover:shadow-espresso/10" data-cat="drinks" style="--d:.12s">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80" alt="Cafe latte" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/700x525/E8C9C2/3A2A20?text=Latte';" />
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-display text-lg font-semibold text-espresso">Signature Latte</h3>
+              <span class="shrink-0 font-display font-bold text-rose">₱150</span>
+            </div>
+            <p class="mt-1.5 text-sm text-mocha">Smooth espresso, velvety steamed milk, latte art.</p>
+          </div>
+        </article>
+
+        <article class="menu-item reveal from-up group overflow-hidden rounded-3xl border border-espresso/10 bg-cream shadow-sm transition hover:shadow-xl hover:shadow-espresso/10" data-cat="drinks" style="--d:.06s">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=700&q=80" alt="Iced coffee" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/700x525/E8C9C2/3A2A20?text=Iced+Coffee';" />
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-display text-lg font-semibold text-espresso">Iced Spanish Latte</h3>
+              <span class="shrink-0 font-display font-bold text-rose">₱165</span>
+            </div>
+            <p class="mt-1.5 text-sm text-mocha">Sweet, creamy, and perfectly chilled.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CAKE PRE-ORDER (signature section) ===================== -->
+  <section id="preorder" class="relative overflow-hidden bg-espresso py-24 text-ivory sm:py-28">
+    <div class="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-rose/20 blur-3xl"></div>
+    <div class="pointer-events-none absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-caramel/20 blur-3xl"></div>
+
+    <div class="relative mx-auto max-w-6xl px-6">
+      <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
+        <!-- left: pitch + steps -->
+        <div class="reveal from-left">
+          <p class="mb-3 font-display text-sm uppercase tracking-[0.2em] text-blush">Made Just For You</p>
+          <h2 class="font-display text-3xl font-semibold leading-tight sm:text-4xl">Pre-Order Your Dream Cake</h2>
+          <p class="mt-5 leading-relaxed text-ivory/75">
+            Birthdays, anniversaries, weddings, or "just because" — tell us your vision and we'll bake it to life.
+            Fill in the details below and send it straight to us. (Please order at least <span class="text-blush">3 days ahead</span>.)
+          </p>
+
+          <ol class="mt-8 space-y-4">
+            <li class="flex items-start gap-4">
+              <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-rose font-display font-bold">1</span>
+              <p class="text-ivory/85"><span class="font-semibold text-ivory">Tell us your idea</span> — flavor, size, design, and your event date.</p>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-rose font-display font-bold">2</span>
+              <p class="text-ivory/85"><span class="font-semibold text-ivory">We confirm</span> the quote &amp; design, then take a 50% deposit to reserve.</p>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-rose font-display font-bold">3</span>
+              <p class="text-ivory/85"><span class="font-semibold text-ivory">Pick up fresh</span> on your date — or arrange delivery within Lipa.</p>
+            </li>
+          </ol>
+        </div>
+
+        <!-- right: order form (composes a message — no backend needed) -->
+        <div class="reveal from-right rounded-3xl border border-ivory/15 bg-ivory/5 p-6 backdrop-blur-sm sm:p-8">
+          <form id="cakeForm" class="grid gap-4">
+            <div>
+              <label for="cakeName" class="mb-1.5 block text-sm font-medium text-ivory/80">Your name</label>
+              <input id="cakeName" required placeholder="Juana Dela Cruz" class="w-full rounded-xl border border-ivory/15 bg-ivory/10 px-4 py-3 text-sm text-ivory placeholder-ivory/40 focus:border-blush focus:outline-none focus:ring-2 focus:ring-rose/40" />
+            </div>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div>
+                <label for="cakeFlavor" class="mb-1.5 block text-sm font-medium text-ivory/80">Flavor</label>
+                <input id="cakeFlavor" placeholder="Chocolate, Ube…" class="w-full rounded-xl border border-ivory/15 bg-ivory/10 px-4 py-3 text-sm text-ivory placeholder-ivory/40 focus:border-blush focus:outline-none focus:ring-2 focus:ring-rose/40" />
+              </div>
+              <div>
+                <label for="cakeSize" class="mb-1.5 block text-sm font-medium text-ivory/80">Size</label>
+                <select id="cakeSize" class="w-full rounded-xl border border-ivory/15 bg-ivory/10 px-4 py-3 text-sm text-ivory focus:border-blush focus:outline-none focus:ring-2 focus:ring-rose/40">
+                  <option class="text-espresso">6" round</option>
+                  <option class="text-espresso">8" round</option>
+                  <option class="text-espresso">2-tier</option>
+                  <option class="text-espresso">Cupcakes</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label for="cakeDate" class="mb-1.5 block text-sm font-medium text-ivory/80">Needed by</label>
+              <input id="cakeDate" type="date" class="w-full rounded-xl border border-ivory/15 bg-ivory/10 px-4 py-3 text-sm text-ivory focus:border-blush focus:outline-none focus:ring-2 focus:ring-rose/40" />
+            </div>
+            <div>
+              <label for="cakeNotes" class="mb-1.5 block text-sm font-medium text-ivory/80">Design / message on cake</label>
+              <textarea id="cakeNotes" rows="3" placeholder="Theme, colors, greeting…" class="w-full resize-y rounded-xl border border-ivory/15 bg-ivory/10 px-4 py-3 text-sm text-ivory placeholder-ivory/40 focus:border-blush focus:outline-none focus:ring-2 focus:ring-rose/40"></textarea>
+            </div>
+            <button type="submit" class="mt-1 inline-flex w-full items-center justify-center gap-2 rounded-full bg-rose px-6 py-3.5 font-semibold text-ivory shadow-lg shadow-rose/30 transition hover:-translate-y-0.5 hover:bg-rose-deep">
+              Send Order via Messenger
+            </button>
+            <p class="text-center text-xs text-ivory/50">Opens a pre-filled message — just hit send and we'll take it from there.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PRIVATE EVENTS ===================== -->
+  <section id="events" class="mx-auto max-w-6xl px-6 py-24 sm:py-28">
+    <div class="reveal from-up overflow-hidden rounded-3xl border border-espresso/10 bg-ivory shadow-xl shadow-espresso/10">
+      <div class="grid lg:grid-cols-2">
+        <div class="order-2 p-8 sm:p-12 lg:order-1">
+          <p class="mb-3 font-display text-sm uppercase tracking-[0.2em] text-rose">Book the Studio</p>
+          <h2 class="font-display text-3xl font-semibold leading-tight text-espresso sm:text-4xl">Intimate gatherings, beautifully hosted.</h2>
+          <p class="mt-5 leading-relaxed text-mocha">
+            Our cozy studio is the perfect backdrop for small celebrations — birthdays, bridal showers, baptisms,
+            or simple get-togethers. Let us handle the cake, coffee, and ambience while you make the memories.
+          </p>
+          <ul class="mt-6 space-y-2.5 text-sm text-mocha">
+            <li class="flex items-center gap-3"><span class="text-rose">✦</span> Cozy seating for intimate groups</li>
+            <li class="flex items-center gap-3"><span class="text-rose">✦</span> Custom cake &amp; pastry spreads</li>
+            <li class="flex items-center gap-3"><span class="text-rose">✦</span> Coffee &amp; drink packages</li>
+          </ul>
+          <a href="#visit" class="mt-8 inline-flex items-center gap-2 rounded-full bg-espresso px-6 py-3 font-semibold text-ivory transition hover:bg-mocha">Inquire about events</a>
+        </div>
+        <div class="order-1 lg:order-2">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80" alt="Cozy event space" class="h-full min-h-[18rem] w-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/900x600/E8C9C2/3A2A20?text=Event+Space';" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GALLERY ===================== -->
+  <section id="gallery" class="bg-ivory py-24 sm:py-28">
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="reveal from-up mx-auto max-w-2xl text-center">
+        <p class="mb-3 font-display text-sm uppercase tracking-[0.2em] text-rose">A Little Look</p>
+        <h2 class="font-display text-3xl font-semibold leading-tight text-espresso sm:text-4xl">From Our Oven</h2>
+      </div>
+      <div class="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+        <a href="#" class="reveal group relative aspect-square overflow-hidden rounded-2xl">
+          <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=500&q=80" alt="Cake" class="h-full w-full object-cover transition duration-700 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/500x500/E8C9C2/3A2A20?text=Freya';" />
+        </a>
+        <a href="#" class="reveal group relative aspect-square overflow-hidden rounded-2xl" style="--d:.06s">
+          <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&w=500&q=80" alt="Cupcakes" class="h-full w-full object-cover transition duration-700 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/500x500/E8C9C2/3A2A20?text=Freya';" />
+        </a>
+        <a href="#" class="reveal group relative aspect-square overflow-hidden rounded-2xl" style="--d:.12s">
+          <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=500&q=80" alt="Croissant" class="h-full w-full object-cover transition duration-700 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/500x500/E8C9C2/3A2A20?text=Freya';" />
+        </a>
+        <a href="#" class="reveal group relative aspect-square overflow-hidden rounded-2xl" style="--d:.18s">
+          <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=500&q=80" alt="Latte" class="h-full w-full object-cover transition duration-700 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/500x500/E8C9C2/3A2A20?text=Freya';" />
+        </a>
+        <a href="#" class="reveal group relative aspect-square overflow-hidden rounded-2xl" style="--d:.06s">
+          <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=500&q=80" alt="Pastries" class="h-full w-full object-cover transition duration-700 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/500x500/E8C9C2/3A2A20?text=Freya';" />
+        </a>
+        <a href="#" class="reveal group relative aspect-square overflow-hidden rounded-2xl" style="--d:.12s">
+          <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?auto=format&fit=crop&w=500&q=80" alt="Cake slice" class="h-full w-full object-cover transition duration-700 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/500x500/E8C9C2/3A2A20?text=Freya';" />
+        </a>
+        <a href="#" class="reveal group relative aspect-square overflow-hidden rounded-2xl" style="--d:.18s">
+          <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&w=500&q=80" alt="Interior" class="h-full w-full object-cover transition duration-700 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/500x500/E8C9C2/3A2A20?text=Freya';" />
+        </a>
+        <a href="#" class="reveal group relative aspect-square overflow-hidden rounded-2xl" style="--d:.24s">
+          <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=500&q=80" alt="Coffee" class="h-full w-full object-cover transition duration-700 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/500x500/E8C9C2/3A2A20?text=Freya';" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== VISIT ===================== -->
+  <section id="visit" class="mx-auto max-w-6xl px-6 py-24 sm:py-28">
+    <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
+      <div class="reveal from-left">
+        <p class="mb-3 font-display text-sm uppercase tracking-[0.2em] text-rose">Come Say Hello</p>
+        <h2 class="font-display text-3xl font-semibold leading-tight text-espresso sm:text-4xl">Visit Freya Studio</h2>
+        <p class="mt-4 leading-relaxed text-mocha">Drop by for coffee &amp; cake, or message us to pre-order. We'd love to see you.</p>
+
+        <div class="mt-8 space-y-4">
+          <div class="flex items-start gap-4 rounded-2xl border border-espresso/10 bg-ivory p-4">
+            <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-rose/10 text-rose"><svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></span>
+            <div><p class="text-xs uppercase tracking-wide text-mocha/60">Location</p><p class="font-medium text-espresso">Marauoy, Lipa City, Batangas <span class="text-mocha/60">(confirm exact address)</span></p></div>
+          </div>
+          <div class="flex items-start gap-4 rounded-2xl border border-espresso/10 bg-ivory p-4">
+            <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-rose/10 text-rose"><svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></span>
+            <div><p class="text-xs uppercase tracking-wide text-mocha/60">Hours</p><p class="font-medium text-espresso">Open daily · 10:00 AM – 9:00 PM <span class="text-mocha/60">(confirm)</span></p></div>
+          </div>
+          <a href="tel:+639230883180" class="flex items-start gap-4 rounded-2xl border border-espresso/10 bg-ivory p-4 transition hover:border-rose/40">
+            <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-rose/10 text-rose"><svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg></span>
+            <div><p class="text-xs uppercase tracking-wide text-mocha/60">Call / Text</p><p class="font-medium text-espresso">+63 923 088 3180</p></div>
+          </a>
+        </div>
+
+        <!-- socials -->
+        <div class="mt-6 flex items-center gap-3">
+          <a href="https://facebook.com/FreyaStudioCafe" target="_blank" rel="noopener" aria-label="Facebook" class="grid h-11 w-11 place-items-center rounded-xl border border-espresso/10 bg-ivory text-mocha transition hover:-translate-y-0.5 hover:border-rose/40 hover:text-rose"><svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0022 12z"/></svg></a>
+          <a href="https://instagram.com/freyastudiocafe" target="_blank" rel="noopener" aria-label="Instagram" class="grid h-11 w-11 place-items-center rounded-xl border border-espresso/10 bg-ivory text-mocha transition hover:-translate-y-0.5 hover:border-rose/40 hover:text-rose"><svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.62c-3.15 0-3.52.01-4.76.07-1.15.05-1.77.24-2.18.4-.55.21-.94.47-1.35.88-.41.41-.67.8-.88 1.35-.16.41-.35 1.03-.4 2.18-.06 1.24-.07 1.61-.07 4.76s.01 3.52.07 4.76c.05 1.15.24 1.77.4 2.18.21.55.47.94.88 1.35.41.41.8.67 1.35.88.41.16 1.03.35 2.18.4 1.24.06 1.61.07 4.76.07s3.52-.01 4.76-.07c1.15-.05 1.77-.24 2.18-.4.55-.21.94-.47 1.35-.88.41-.41.67-.8.88-1.35.16-.41.35-1.03.4-2.18.06-1.24.07-1.61.07-4.76s-.01-3.52-.07-4.76c-.05-1.15-.24-1.77-.4-2.18a3.6 3.6 0 00-.88-1.35 3.6 3.6 0 00-1.35-.88c-.41-.16-1.03-.35-2.18-.4-1.24-.06-1.61-.07-4.76-.07zm0 2.76a5.46 5.46 0 110 10.92 5.46 5.46 0 010-10.92zm0 9a3.54 3.54 0 100-7.08 3.54 3.54 0 000 7.08zm5.66-9.2a1.27 1.27 0 11-2.55 0 1.27 1.27 0 012.55 0z"/></svg></a>
+        </div>
+      </div>
+
+      <!-- map -->
+      <div class="reveal from-right overflow-hidden rounded-3xl border border-espresso/10 shadow-xl shadow-espresso/10">
+        <iframe title="Freya Studio location" class="h-full min-h-[22rem] w-full" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Marauoy,+Lipa+City,+Batangas&output=embed"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="border-t border-espresso/10 bg-cream">
+    <div class="mx-auto max-w-6xl px-6 py-12">
+      <div class="flex flex-col items-center gap-6 text-center">
+        <a href="#top" class="flex items-center gap-3">
+          <span class="grid h-12 w-12 place-items-center rounded-2xl bg-rose font-display text-2xl font-bold text-ivory">F</span>
+          <span class="font-display text-xl font-semibold text-espresso">Freya <span class="text-rose">Studio</span></span>
+        </a>
+        <p class="max-w-md text-sm text-mocha">Cafe &amp; Bakery — Lipa City, Batangas. Custom cakes, fresh pastries &amp; specialty coffee.</p>
+        <div class="flex gap-6 text-sm font-medium text-mocha">
+          <a href="#menu" class="transition hover:text-rose">Menu</a>
+          <a href="#preorder" class="transition hover:text-rose">Pre-Order</a>
+          <a href="#events" class="transition hover:text-rose">Events</a>
+          <a href="#visit" class="transition hover:text-rose">Visit</a>
+        </div>
+      </div>
+      <div class="mt-10 border-t border-espresso/10 pt-6 text-center text-xs text-mocha/70">
+        <p>© <span id="year"></span> Freya Studio Cafe &amp; Bakery. All rights reserved.</p>
+        <p class="mt-1">Website by <a href="https://marcobelen.netlify.app" target="_blank" rel="noopener" class="font-medium text-rose hover:underline">Marco Belen</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating order button -->
+  <a href="#preorder" aria-label="Pre-order a cake"
+     class="fixed bottom-6 right-6 z-40 inline-flex items-center gap-2 rounded-full bg-rose px-5 py-3 font-semibold text-ivory shadow-xl shadow-rose/40 transition hover:-translate-y-0.5 hover:bg-rose-deep">
+    🍰 <span class="hidden sm:inline">Order a Cake</span>
+  </a>
+
+  <!-- ===================== SCRIPT ===================== -->
+  <script>
+    // Mobile menu
+    const toggle = document.getElementById('navToggle');
+    const menu = document.getElementById('mobileMenu');
+    const setMenu = (open) => { menu.classList.toggle('hidden', !open); toggle.setAttribute('aria-expanded', String(open)); };
+    toggle.addEventListener('click', (e) => { e.stopPropagation(); setMenu(menu.classList.contains('hidden')); });
+    document.querySelectorAll('.mobile-link').forEach((l) => l.addEventListener('click', () => setMenu(false)));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Typewriter
+    const typed = document.getElementById('typed');
+    if (typed) {
+      const lines = ['Freshly baked, made with love.', 'Custom cakes for your moments.', 'Your cozy studio in Lipa.', 'Order your dream cake 🍰'];
+      let li = 0, ci = lines[0].length, del = false;
+      const tick = () => {
+        const w = lines[li];
+        typed.textContent = w.slice(0, ci);
+        let d;
+        if (!del) { if (ci < w.length) { ci++; d = 70; } else { del = true; d = 1800; } }
+        else { if (ci > 0) { ci--; d = 35; } else { del = false; li = (li + 1) % lines.length; d = 350; } }
+        setTimeout(tick, d);
+      };
+      setTimeout(tick, 1600);
+    }
+
+    // Scroll-reveal (always on)
+    const revealEls = document.querySelectorAll('.reveal');
+    // assign directions
+    document.querySelectorAll('#about .reveal, #visit .reveal').forEach((el, i) => { if (!el.classList.contains('from-left') && !el.classList.contains('from-right')) el.classList.add(i % 2 ? 'from-right' : 'from-left'); });
+    document.querySelectorAll('.menu-item').forEach((el, i) => { el.classList.add(i % 2 ? 'from-right' : 'from-left'); el.style.setProperty('--d', (i % 3) * 0.12 + 's'); });
+    document.querySelectorAll('#gallery a.reveal').forEach((el, i) => { el.classList.add('from-up'); });
+    revealEls.forEach((el) => { if (![...el.classList].some((c) => c.startsWith('from-'))) el.classList.add('from-up'); });
+
+    if ('IntersectionObserver' in window) {
+      const obs = new IntersectionObserver((entries, o) => {
+        entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('in'); o.unobserve(en.target); } });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      revealEls.forEach((el) => obs.observe(el));
+    } else {
+      revealEls.forEach((el) => el.classList.add('in'));
+    }
+
+    // Menu filter
+    const filters = document.querySelectorAll('.menu-filter');
+    const items = document.querySelectorAll('.menu-item');
+    filters.forEach((btn) => btn.addEventListener('click', () => {
+      const f = btn.getAttribute('data-filter');
+      filters.forEach((b) => {
+        const active = b === btn;
+        b.setAttribute('aria-pressed', String(active));
+        b.classList.toggle('bg-rose', active);
+        b.classList.toggle('text-ivory', active);
+        b.classList.toggle('bg-cream', !active);
+        b.classList.toggle('text-mocha', !active);
+        b.classList.toggle('border', !active);
+        b.classList.toggle('border-espresso/15', !active);
+      });
+      items.forEach((it) => { it.style.display = (f === 'all' || it.getAttribute('data-cat') === f) ? '' : 'none'; });
+    }));
+
+    // Cake pre-order form → opens a pre-filled Messenger/WhatsApp message (no backend needed)
+    const cakeForm = document.getElementById('cakeForm');
+    if (cakeForm) {
+      cakeForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('cakeName').value || '—';
+        const flavor = document.getElementById('cakeFlavor').value || '—';
+        const size = document.getElementById('cakeSize').value || '—';
+        const date = document.getElementById('cakeDate').value || '—';
+        const notes = document.getElementById('cakeNotes').value || '—';
+        const msg =
+          `Hi Freya Studio! I'd like to pre-order a cake 🍰%0A%0A` +
+          `Name: ${name}%0AFlavor: ${flavor}%0ASize: ${size}%0ANeeded by: ${date}%0ADesign/Message: ${notes}`;
+        // WhatsApp; swap for Messenger m.me link if preferred
+        window.open('https://wa.me/639230883180?text=' + msg, '_blank');
+      });
+    }
+  </script>
+</body>
+</html>
