@@ -63,6 +63,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
+  <!-- Preload the hero image (LCP) for faster first paint -->
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1600&q=80" fetchpriority="high" />
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -179,7 +182,7 @@
     <!-- background image -->
     <div class="absolute inset-0">
       <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1600&q=80"
-           alt="Freshly baked cake" class="kenburns h-full w-full object-cover"
+           alt="Freshly baked cake" decoding="async" fetchpriority="high" class="kenburns h-full w-full object-cover"
            onerror="this.onerror=null;this.src='https://placehold.co/1600x900/3A2A20/FBF7F0?text=Freya+Studio';" />
       <div class="absolute inset-0 bg-gradient-to-r from-espresso/80 via-espresso/55 to-espresso/30"></div>
       <div class="absolute inset-0 bg-gradient-to-t from-espresso/60 via-transparent to-transparent"></div>
@@ -268,7 +271,7 @@
       <div class="reveal from-left relative">
         <div class="overflow-hidden rounded-3xl border border-espresso/10 shadow-xl shadow-espresso/10">
           <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&w=900&q=80"
-               alt="Inside Freya Studio" class="aspect-[4/5] w-full object-cover"
+               alt="Inside Freya Studio" loading="lazy" decoding="async" class="aspect-[4/5] w-full object-cover"
                onerror="this.onerror=null;this.src='https://placehold.co/900x1125/E8C9C2/3A2A20?text=Our+Studio';" />
         </div>
         <!-- est. stamp -->
@@ -326,7 +329,7 @@
       <div class="reveal from-up mt-12 overflow-hidden rounded-3xl border border-rose/20 bg-gradient-to-br from-blush/40 to-cream shadow-lg shadow-espresso/5">
         <div class="grid lg:grid-cols-2">
           <div class="relative min-h-[16rem] lg:min-h-full">
-            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=900&q=80" alt="Bestselling ube cheesecake" class="absolute inset-0 h-full w-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/900x700/E8C9C2/3A2A20?text=Bestseller';" />
+            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=900&q=80" alt="Bestselling ube cheesecake" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/900x700/E8C9C2/3A2A20?text=Bestseller';" />
           </div>
           <div class="p-8 sm:p-10">
             <span class="inline-flex items-center gap-1.5 rounded-full bg-rose px-3 py-1 text-xs font-semibold uppercase tracking-wide text-ivory"><svg class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1l3.09 6.26L22 8.27l-5 4.87 1.18 6.88L12 16.77l-6.18 3.25L7 13.14 2 8.27l6.91-1.01L12 1z"/></svg> Bestseller</span>
@@ -352,7 +355,7 @@
         <!-- item -->
         <article class="menu-item reveal from-up group overflow-hidden rounded-3xl border border-espresso/10 bg-cream shadow-sm transition hover:shadow-xl hover:shadow-espresso/10" data-cat="cakes">
           <div class="aspect-[4/3] overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?auto=format&fit=crop&w=700&q=80" alt="Classic celebration cake" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/700x525/E8C9C2/3A2A20?text=Cake';" />
+            <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?auto=format&fit=crop&w=700&q=80" alt="Classic celebration cake" loading="lazy" decoding="async" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/700x525/E8C9C2/3A2A20?text=Cake';" />
           </div>
           <div class="p-5">
             <div class="flex items-start justify-between gap-3">
@@ -365,7 +368,7 @@
 
         <article class="menu-item reveal from-up group overflow-hidden rounded-3xl border border-espresso/10 bg-cream shadow-sm transition hover:shadow-xl hover:shadow-espresso/10" data-cat="cakes" style="--d:.06s">
           <div class="aspect-[4/3] overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&w=700&q=80" alt="Cupcakes" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/700x525/E8C9C2/3A2A20?text=Cupcakes';" />
+            <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&w=700&q=80" alt="Cupcakes" loading="lazy" decoding="async" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/700x525/E8C9C2/3A2A20?text=Cupcakes';" />
           </div>
           <div class="p-5">
             <div class="flex items-start justify-between gap-3">
@@ -378,7 +381,7 @@
 
         <article class="menu-item reveal from-up group overflow-hidden rounded-3xl border border-espresso/10 bg-cream shadow-sm transition hover:shadow-xl hover:shadow-espresso/10" data-cat="pastries" style="--d:.12s">
           <div class="aspect-[4/3] overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=700&q=80" alt="Butter croissant" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/700x525/E8C9C2/3A2A20?text=Croissant';" />
+            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=700&q=80" alt="Butter croissant" loading="lazy" decoding="async" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/700x525/E8C9C2/3A2A20?text=Croissant';" />
           </div>
           <div class="p-5">
             <div class="flex items-start justify-between gap-3">
@@ -391,7 +394,7 @@
 
         <article class="menu-item reveal from-up group overflow-hidden rounded-3xl border border-espresso/10 bg-cream shadow-sm transition hover:shadow-xl hover:shadow-espresso/10" data-cat="pastries" style="--d:.06s">
           <div class="aspect-[4/3] overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=700&q=80" alt="Assorted pastries" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/700x525/E8C9C2/3A2A20?text=Pastries';" />
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=700&q=80" alt="Assorted pastries" loading="lazy" decoding="async" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/700x525/E8C9C2/3A2A20?text=Pastries';" />
           </div>
           <div class="p-5">
             <div class="flex items-start justify-between gap-3">
@@ -404,7 +407,7 @@
 
         <article class="menu-item reveal from-up group overflow-hidden rounded-3xl border border-espresso/10 bg-cream shadow-sm transition hover:shadow-xl hover:shadow-espresso/10" data-cat="drinks" style="--d:.12s">
           <div class="aspect-[4/3] overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80" alt="Cafe latte" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/700x525/E8C9C2/3A2A20?text=Latte';" />
+            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80" alt="Cafe latte" loading="lazy" decoding="async" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/700x525/E8C9C2/3A2A20?text=Latte';" />
           </div>
           <div class="p-5">
             <div class="flex items-start justify-between gap-3">
@@ -417,7 +420,7 @@
 
         <article class="menu-item reveal from-up group overflow-hidden rounded-3xl border border-espresso/10 bg-cream shadow-sm transition hover:shadow-xl hover:shadow-espresso/10" data-cat="drinks" style="--d:.06s">
           <div class="aspect-[4/3] overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=700&q=80" alt="Iced coffee" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/700x525/E8C9C2/3A2A20?text=Iced+Coffee';" />
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=700&q=80" alt="Iced coffee" loading="lazy" decoding="async" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/700x525/E8C9C2/3A2A20?text=Iced+Coffee';" />
           </div>
           <div class="p-5">
             <div class="flex items-start justify-between gap-3">
@@ -536,7 +539,7 @@
           <a href="#visit" class="mt-8 inline-flex items-center gap-2 rounded-full bg-espresso px-6 py-3 font-semibold text-ivory transition hover:bg-mocha">Inquire about events</a>
         </div>
         <div class="order-1 lg:order-2">
-          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80" alt="Cozy event space" class="h-full min-h-[18rem] w-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/900x600/E8C9C2/3A2A20?text=Event+Space';" />
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80" alt="Cozy event space" loading="lazy" decoding="async" class="h-full min-h-[18rem] w-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/900x600/E8C9C2/3A2A20?text=Event+Space';" />
         </div>
       </div>
     </div>
@@ -594,30 +597,92 @@
       </div>
       <div class="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
         <a href="#" class="reveal group relative aspect-square overflow-hidden rounded-2xl">
-          <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=500&q=80" alt="Cake" class="h-full w-full object-cover transition duration-700 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/500x500/E8C9C2/3A2A20?text=Freya';" />
+          <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=500&q=80" alt="Cake" loading="lazy" decoding="async" class="h-full w-full object-cover transition duration-700 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/500x500/E8C9C2/3A2A20?text=Freya';" />
         </a>
         <a href="#" class="reveal group relative aspect-square overflow-hidden rounded-2xl" style="--d:.06s">
-          <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&w=500&q=80" alt="Cupcakes" class="h-full w-full object-cover transition duration-700 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/500x500/E8C9C2/3A2A20?text=Freya';" />
+          <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&w=500&q=80" alt="Cupcakes" loading="lazy" decoding="async" class="h-full w-full object-cover transition duration-700 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/500x500/E8C9C2/3A2A20?text=Freya';" />
         </a>
         <a href="#" class="reveal group relative aspect-square overflow-hidden rounded-2xl" style="--d:.12s">
-          <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=500&q=80" alt="Croissant" class="h-full w-full object-cover transition duration-700 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/500x500/E8C9C2/3A2A20?text=Freya';" />
+          <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=500&q=80" alt="Croissant" loading="lazy" decoding="async" class="h-full w-full object-cover transition duration-700 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/500x500/E8C9C2/3A2A20?text=Freya';" />
         </a>
         <a href="#" class="reveal group relative aspect-square overflow-hidden rounded-2xl" style="--d:.18s">
-          <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=500&q=80" alt="Latte" class="h-full w-full object-cover transition duration-700 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/500x500/E8C9C2/3A2A20?text=Freya';" />
+          <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=500&q=80" alt="Latte" loading="lazy" decoding="async" class="h-full w-full object-cover transition duration-700 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/500x500/E8C9C2/3A2A20?text=Freya';" />
         </a>
         <a href="#" class="reveal group relative aspect-square overflow-hidden rounded-2xl" style="--d:.06s">
-          <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=500&q=80" alt="Pastries" class="h-full w-full object-cover transition duration-700 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/500x500/E8C9C2/3A2A20?text=Freya';" />
+          <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=500&q=80" alt="Pastries" loading="lazy" decoding="async" class="h-full w-full object-cover transition duration-700 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/500x500/E8C9C2/3A2A20?text=Freya';" />
         </a>
         <a href="#" class="reveal group relative aspect-square overflow-hidden rounded-2xl" style="--d:.12s">
-          <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?auto=format&fit=crop&w=500&q=80" alt="Cake slice" class="h-full w-full object-cover transition duration-700 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/500x500/E8C9C2/3A2A20?text=Freya';" />
+          <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?auto=format&fit=crop&w=500&q=80" alt="Cake slice" loading="lazy" decoding="async" class="h-full w-full object-cover transition duration-700 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/500x500/E8C9C2/3A2A20?text=Freya';" />
         </a>
         <a href="#" class="reveal group relative aspect-square overflow-hidden rounded-2xl" style="--d:.18s">
-          <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&w=500&q=80" alt="Interior" class="h-full w-full object-cover transition duration-700 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/500x500/E8C9C2/3A2A20?text=Freya';" />
+          <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&w=500&q=80" alt="Interior" loading="lazy" decoding="async" class="h-full w-full object-cover transition duration-700 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/500x500/E8C9C2/3A2A20?text=Freya';" />
         </a>
         <a href="#" class="reveal group relative aspect-square overflow-hidden rounded-2xl" style="--d:.24s">
-          <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=500&q=80" alt="Coffee" class="h-full w-full object-cover transition duration-700 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/500x500/E8C9C2/3A2A20?text=Freya';" />
+          <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=500&q=80" alt="Coffee" loading="lazy" decoding="async" class="h-full w-full object-cover transition duration-700 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/500x500/E8C9C2/3A2A20?text=Freya';" />
         </a>
       </div>
+    </div>
+  </section>
+
+  <!-- ===================== INSTAGRAM CTA ===================== -->
+  <section aria-label="Follow Freya on Instagram" class="mx-auto max-w-6xl px-6 pb-8 pt-4">
+    <div class="reveal from-up overflow-hidden rounded-3xl bg-gradient-to-br from-rose to-rose-deep px-8 py-12 text-center text-ivory shadow-xl shadow-rose/20">
+      <svg class="mx-auto h-10 w-10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.62c-3.15 0-3.52.01-4.76.07-1.15.05-1.77.24-2.18.4-.55.21-.94.47-1.35.88-.41.41-.67.8-.88 1.35-.16.41-.35 1.03-.4 2.18-.06 1.24-.07 1.61-.07 4.76s.01 3.52.07 4.76c.05 1.15.24 1.77.4 2.18.21.55.47.94.88 1.35.41.41.8.67 1.35.88.41.16 1.03.35 2.18.4 1.24.06 1.61.07 4.76.07s3.52-.01 4.76-.07c1.15-.05 1.77-.24 2.18-.4.55-.21.94-.47 1.35-.88.41-.41.67-.8.88-1.35.16-.41.35-1.03.4-2.18.06-1.24.07-1.61.07-4.76s-.01-3.52-.07-4.76c-.05-1.15-.24-1.77-.4-2.18a3.6 3.6 0 00-.88-1.35 3.6 3.6 0 00-1.35-.88c-.41-.16-1.03-.35-2.18-.4-1.24-.06-1.61-.07-4.76-.07zm0 2.76a5.46 5.46 0 110 10.92 5.46 5.46 0 010-10.92zm0 9a3.54 3.54 0 100-7.08 3.54 3.54 0 000 7.08zm5.66-9.2a1.27 1.27 0 11-2.55 0 1.27 1.27 0 012.55 0z"/></svg>
+      <h2 class="mt-4 font-display text-3xl font-semibold">Follow our daily bakes</h2>
+      <p class="mx-auto mt-3 max-w-md text-ivory/80">See fresh cakes, behind-the-scenes moments, and new treats first over on Instagram.</p>
+      <a href="https://instagram.com/freyastudiocafe" target="_blank" rel="noopener" class="mt-6 inline-flex items-center gap-2 rounded-full bg-ivory px-6 py-3 font-semibold text-rose-deep shadow-lg transition hover:-translate-y-0.5">@freyastudiocafe</a>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section id="faq" class="mx-auto max-w-3xl px-6 py-24 sm:py-28">
+    <div class="reveal from-up text-center">
+      <p class="mb-3 font-display text-sm uppercase tracking-[0.2em] text-rose">Good to Know</p>
+      <h2 class="font-display text-3xl font-semibold leading-tight text-espresso sm:text-4xl">Frequently Asked Questions</h2>
+    </div>
+    <div class="reveal from-up mt-12 space-y-3">
+      <details class="group rounded-2xl border border-espresso/10 bg-ivory p-5 shadow-sm">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-medium text-espresso">
+          How far in advance should I order a custom cake?
+          <svg class="h-5 w-5 shrink-0 text-rose transition group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+        </summary>
+        <p class="mt-3 text-sm leading-relaxed text-mocha">We recommend at least 3 days ahead for most cakes. For larger or intricate designs (tiered or fully themed), a week is best so we can make it perfect.</p>
+      </details>
+      <details class="group rounded-2xl border border-espresso/10 bg-ivory p-5 shadow-sm">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-medium text-espresso">
+          Do you deliver, or is it pickup only?
+          <svg class="h-5 w-5 shrink-0 text-rose transition group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+        </summary>
+        <p class="mt-3 text-sm leading-relaxed text-mocha">Both! You can pick up at our studio in Lipa, or we can deliver within Lipa City for a small fee — just let us know your location.</p>
+      </details>
+      <details class="group rounded-2xl border border-espresso/10 bg-ivory p-5 shadow-sm">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-medium text-espresso">
+          How do I reserve and pay?
+          <svg class="h-5 w-5 shrink-0 text-rose transition group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+        </summary>
+        <p class="mt-3 text-sm leading-relaxed text-mocha">A 50% deposit confirms your order, with the balance due on pickup or delivery. We accept GCash and cash.</p>
+      </details>
+      <details class="group rounded-2xl border border-espresso/10 bg-ivory p-5 shadow-sm">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-medium text-espresso">
+          Can I customize the flavor and design?
+          <svg class="h-5 w-5 shrink-0 text-rose transition group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+        </summary>
+        <p class="mt-3 text-sm leading-relaxed text-mocha">Absolutely — every cake is made to order. Tell us your flavor, size, theme, colors, and the message you'd like, and we'll bring it to life.</p>
+      </details>
+      <details class="group rounded-2xl border border-espresso/10 bg-ivory p-5 shadow-sm">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-medium text-espresso">
+          Do you cater small events?
+          <svg class="h-5 w-5 shrink-0 text-rose transition group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+        </summary>
+        <p class="mt-3 text-sm leading-relaxed text-mocha">Yes! Our cozy studio is perfect for intimate gatherings, with custom cake &amp; pastry spreads plus coffee packages. Message us to plan your event.</p>
+      </details>
+      <details class="group rounded-2xl border border-espresso/10 bg-ivory p-5 shadow-sm">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-medium text-espresso">
+          Do you have options for allergies or dietary needs?
+          <svg class="h-5 w-5 shrink-0 text-rose transition group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+        </summary>
+        <p class="mt-3 text-sm leading-relaxed text-mocha">Let us know your needs when ordering and we'll do our best to accommodate. Please note that common allergens (nuts, dairy, eggs, gluten) may be present in our kitchen.</p>
+      </details>
     </div>
   </section>
 
